@@ -7,10 +7,46 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>TODO App</title>
     <meta name="description" content="">
-  </head>
-  <body>
-    <div id="app">
+    <link rel="stylesheet" href="./main.css ">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+</head>
 
+<body>
+    <div id="app">
+        <div id='banner'>
+            <h3>TO DO APP</h3>
+            <p>the date today is</p>
+            <div id=button>
+                <button><span class='glyphicon'>&#x2b;</span></button>
+                <button><span class='glyphicon'>&#xe086;</span></button>
+            </div>
+        </div>
+        <div id='list'>
+            <h5>Today's Schedule</h5>
+            <table>
+                <tr>
+                    <td> <button class='btn btn-primary'><span class='badge'>active</span></button> </td>
+                    <td> Go to work</td>
+                    <td>8:00 - 16:00</td>
+                </tr>
+                <tr>
+                    <td> <button class='btn btn-primary'><span class='badge'>pending</span></button> </td>
+                    <td> Attend accounts meeting </td>
+                    <td>10:00 - 12:00</td>
+                </tr>
+                <tr>
+                    <td> <button class='btn btn-primary'><span class='badge'>canceled</span></button> </td>
+                    <td> Watch WorldCup </td>
+                    <td>13:00 - 15:00</td>
+                </tr>
+                <tr>
+                    <td> <button class='btn btn-primary'><span class='badge'>active</span></button> </td>
+                    <td> Watch WorldCup </td>
+                    <td>13:00 - 15:00</td>
+                </tr>
+            </table>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>

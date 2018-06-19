@@ -9,7 +9,6 @@
 ## Development Server
 
 - `npm start` will run the app's development server at [http://localhost:3000](http://localhost:3000), automatically reloading the page on every change.
-
 ## Running Tests
 
 - `npm test` will run the tests once.

@@ -2,7 +2,6 @@
   "name": "summer-school-simple-todos",
   "version": "1.0.0",
   "description": "Describe summer-school-simple-todos here",
-  "private": true,
   "scripts": {
     "build": "nwb build-web-app",
     "clean": "nwb clean-app",
@@ -15,7 +14,7 @@
   "devDependencies": {
     "nwb": "0.21.x"
   },
-  "author": "",
+  "author": "Flock of birds",
   "license": "MIT",
   "repository": ""
 }

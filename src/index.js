@@ -1,14 +1,22 @@
 require("./main.css");
 require("./bootstrap/css/bootstrap.min.css");
 
+//add date to banner
+var date = new Date().toString();
+date = date.slice(0,15);
+date = "  " + date;
+
+var Pdate = document.getElementById("date");
+Pdate.innerHTML += date; 
+
 //x.toDateString()
 
 let tasksArray = [
+    {status:"very active",name:"Watch world cup",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
     {status:"active",name:"Go to work",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
     {status:"pending",name:"Attend accounts meeting",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
     {status:"cancelled",name:"Visit the doctor",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
-    {status:"postponed",name:"Go for lunch",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
-    {status:"very active",name:"Watch world cup",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() }
+    {status:"postponed",name:"Go for lunch",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() }
 ];
 
 
@@ -25,13 +33,24 @@ return cell;
 }
 
 
+//add date to banner div, statement is still empty
+//add tooltipsshutdow
 position_of_row = 0;
-
 for(i=0; i<tasksArray.length; i++){
+    var cell;
     row = addRow(position_of_row);
 
     position_of_cell = 0;
-    addTableData(position_of_cell).innerHTML = tasksArray[i].status;
+    if(tasksArray[i].status === "active"){
+        addTableData(position_of_cell).innerHTML = "<button class='btn btn-success btn-sm'><span class='badge'>"+tasksArray[i].status+"</span></button>" ;
+    }
+    else if(tasksArray[i].status === "cancelled"){
+        addTableData(position_of_cell).innerHTML = "<button class='btn btn-danger btn-sm'><span class='badge'>"+tasksArray[i].status+"</span></button>" ;
+    }
+    else{
+        addTableData(position_of_cell).innerHTML = "<button class='btn btn-primary btn-sm'><span class='badge'>"+tasksArray[i].status+"</span></button>" ;
+    }
+
 
     position_of_cell++;
     addTableData(position_of_cell).innerHTML = tasksArray[i].name;
@@ -41,3 +60,5 @@ for(i=0; i<tasksArray.length; i++){
 
     position_of_row++;
 }
+
+console.log(table.rows[0].cells)

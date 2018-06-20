@@ -2,7 +2,6 @@ body {
     font-family: Tahoma;
     color: #444;
     letter-spacing: 1px;
-    
 }
 
 #app {
@@ -13,7 +12,6 @@ body {
     padding: 0 0 20px;
     overflow: hidden;
     border: 1px solid lightgray;
-    height:650px;
 }
 
 #banner {
@@ -39,10 +37,10 @@ body {
     margin: 0 auto;
     text-align: center;
     width: 70%;
-    padding-top:55px;
+    padding-top: 55px;
 }
 
-#list h5{
+#list h5 {
     padding-bottom: 23px;
 }
 
@@ -51,6 +49,11 @@ table {
     width: 60%;
     text-align: center;
 }
+
+#inputData h4 {
+    text-align: center;
+}
+
 
 /*
 table button {

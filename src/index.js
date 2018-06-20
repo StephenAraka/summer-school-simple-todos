@@ -3,11 +3,11 @@ require("./bootstrap/css/bootstrap.min.css");
 
 //add date to banner
 var date = new Date().toString();
-date = date.slice(0,15);
+date = date.slice(0, 15);
 date = "  " + date;
 
 var Pdate = document.getElementById("date");
-Pdate.innerHTML += date; 
+Pdate.innerHTML += date;
 
 //x.toDateString()
 
@@ -15,36 +15,36 @@ Pdate.innerHTML += date;
 let tasksArray = [{
         status: "active",
         name: "Go to work",
-        time: time(2,7)
+        time: time(2, 7)
     },
     {
         status: "pending",
         name: "Attend accounts meeting",
-        time: time(4,3)
+        time: time(4, 3)
     },
     {
         status: "cancelled",
         name: "Visit the doctor",
-        time: time(1,7)
+        time: time(1, 7)
     },
     {
         status: "postponed",
         name: "Go for lunch",
-        time: time(2,0)
+        time: time(2, 0)
     },
     {
         status: "very active",
         name: "Watch world cup",
-        time: time(1,2)
+        time: time(1, 2)
     }
 ];
 
-function time(h,m) {
+function time(h, m) {
     var hours = new Date().getHours() + h;
     var minutes = new Date().getMinutes() + m;
-   return hours.toString() + ":" + minutes.toString();
-  
-    
+    return hours.toString() + ":" + minutes.toString();
+
+
 }
 
 let table = document.getElementById("tasksTable");
@@ -63,19 +63,17 @@ let addTableData = function(cell_position) {
 //add date to banner div, statement is still empty
 //add tooltipsshutdow
 position_of_row = 0;
-for(i=0; i<tasksArray.length; i++){
+for (i = 0; i < tasksArray.length; i++) {
     var cell;
     row = addRow(position_of_row);
 
     position_of_cell = 0;
-    if(tasksArray[i].status === "active"){
-        addTableData(position_of_cell).innerHTML = "<button class='btn btn-success btn-sm'><span class='badge'>"+tasksArray[i].status+"</span></button>" ;
-    }
-    else if(tasksArray[i].status === "cancelled"){
-        addTableData(position_of_cell).innerHTML = "<button class='btn btn-danger btn-sm'><span class='badge'>"+tasksArray[i].status+"</span></button>" ;
-    }
-    else{
-        addTableData(position_of_cell).innerHTML = "<button class='btn btn-primary btn-sm'><span class='badge'>"+tasksArray[i].status+"</span></button>" ;
+    if (tasksArray[i].status === "active") {
+        addTableData(position_of_cell).innerHTML = "<button class='btn btn-success btn-sm'><span class='badge'>" + tasksArray[i].status + "</span></button>";
+    } else if (tasksArray[i].status === "cancelled") {
+        addTableData(position_of_cell).innerHTML = "<button class='btn btn-danger btn-sm'><span class='badge'>" + tasksArray[i].status + "</span></button>";
+    } else {
+        addTableData(position_of_cell).innerHTML = "<button class='btn btn-primary btn-sm'><span class='badge'>" + tasksArray[i].status + "</span></button>";
     }
 
 

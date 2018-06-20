@@ -9,35 +9,64 @@ date = "  " + date;
 var Pdate = document.getElementById("date");
 Pdate.innerHTML += date;
 
-//x.toDateString()
 
+
+//array of objects
 
 let tasksArray = [{
-        status: "active",
-        name: "Go to work",
-        time: time(2, 7)
-    },
-    {
-        status: "pending",
-        name: "Attend accounts meeting",
-        time: time(4, 3)
-    },
-    {
-        status: "cancelled",
-        name: "Visit the doctor",
-        time: time(1, 7)
-    },
-    {
-        status: "postponed",
-        name: "Go for lunch",
-        time: time(2, 0)
-    },
-    {
-        status: "very active",
-        name: "Watch world cup",
-        time: time(1, 2)
-    }
+    status: "active",
+    name: "Go to work",
+    time: time(2, 7)
+},
+{
+    status: "pending",
+    name: "Attend accounts meeting",
+    time: time(4, 3)
+},
+/*
+{
+    status: "cancelled",
+    name: "Visit the doctor",
+    time: time(1, 7)
+},
+*/
+{
+    status: "postponed",
+    name: "Go for lunch",
+    time: time(2, 0)
+},
+{
+    status: "very active",
+    name: "Watch world cup",
+    time: time(1, 2)
+}
 ];
+
+
+// pick data from html to array
+
+var data_button = document.getElementById("push_data");
+if(data_button){
+    data_button.addEventListener("click",function(){
+        
+            var input_taskName = document.getElementById("taskName").value;
+            var input_time   =  document.getElementById("taskTime").value;
+
+            //create object
+            var obj = {
+                status : "active",
+                name: input_taskName,
+                time : input_time
+            };
+            
+            tasksArray.push(obj);
+            alert(tasksArray[4].name)
+            
+        }
+    );
+}
+
+
 
 function time(h, m) {
     var hours = new Date().getHours() + h;
@@ -86,4 +115,3 @@ for (i = 0; i < tasksArray.length; i++) {
     position_of_row++;
 }
 
-console.log(table.rows[0].cells)

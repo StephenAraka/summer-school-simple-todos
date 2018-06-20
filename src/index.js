@@ -11,25 +11,48 @@ Pdate.innerHTML += date;
 
 //x.toDateString()
 
-let tasksArray = [
-    {status:"very active",name:"Watch world cup",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
-    {status:"active",name:"Go to work",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
-    {status:"pending",name:"Attend accounts meeting",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
-    {status:"cancelled",name:"Visit the doctor",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() },
-    {status:"postponed",name:"Go for lunch",time: new Date().getHours().toString() + ":" +new Date().getMinutes().toString() }
+
+let tasksArray = [{
+        status: "active",
+        name: "Go to work",
+        time: time()
+    },
+    {
+        status: "pending",
+        name: "Attend accounts meeting",
+        time: time()
+    },
+    {
+        status: "cancelled",
+        name: "Visit the doctor",
+        time: time()
+    },
+    {
+        status: "postponed",
+        name: "Go for lunch",
+        time: time()
+    },
+    {
+        status: "very active",
+        name: "Watch world cup",
+        time: time()
+    }
 ];
 
+function time() {
+    return new Date().getHours().toString() + ":" + new Date().getMinutes().toString();
+}
 
 let table = document.getElementById("tasksTable");
 
-var addRow = function(row_position){
-let tableRow = table.insertRow(row_position);
-return tableRow;
+var addRow = function(row_position) {
+    let tableRow = table.insertRow(row_position);
+    return tableRow;
 }
 
-let addTableData = function(cell_position){
-let cell = row.insertCell(cell_position);
-return cell;
+let addTableData = function(cell_position) {
+    let cell = row.insertCell(cell_position);
+    return cell;
 }
 
 

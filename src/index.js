@@ -15,32 +15,36 @@ Pdate.innerHTML += date;
 let tasksArray = [{
         status: "active",
         name: "Go to work",
-        time: time()
+        time: time(2,7)
     },
     {
         status: "pending",
         name: "Attend accounts meeting",
-        time: time()
+        time: time(4,3)
     },
     {
         status: "cancelled",
         name: "Visit the doctor",
-        time: time()
+        time: time(1,7)
     },
     {
         status: "postponed",
         name: "Go for lunch",
-        time: time()
+        time: time(2,0)
     },
     {
         status: "very active",
         name: "Watch world cup",
-        time: time()
+        time: time(1,2)
     }
 ];
 
-function time() {
-    return new Date().getHours().toString() + ":" + new Date().getMinutes().toString();
+function time(h,m) {
+    var hours = new Date().getHours() + h;
+    var minutes = new Date().getMinutes() + m;
+   return hours.toString() + ":" + minutes.toString();
+  
+    
 }
 
 let table = document.getElementById("tasksTable");

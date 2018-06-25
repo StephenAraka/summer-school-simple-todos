@@ -1,25 +1,24 @@
 {
-  "name": "summer-school-simple-todos",
-  "version": "1.0.0",
-  "description": "Describe summer-school-simple-todos here",
-  "scripts": {
-    "build": "nwb build-web-app",
-    "clean": "nwb clean-app",
-    "start": "nwb serve-web-app --reload",
-    "test": "nwb test",
-    "test:coverage": "nwb test --coverage",
-    "test:watch": "nwb test --server"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.12.0",
-    "nwb": "0.21.x",
-    "tslint": "^5.10.0",
-    "tslint-eslint-rules": "^5.3.1"
-  },
-  "author": "Flock of birds",
-  "license": "MIT",
-  "repository": ""
+    "name": "summer-school-simple-todos",
+    "version": "1.0.0",
+    "description": "Describe summer-school-simple-todos here",
+    "scripts": {
+        "build": "nwb build-web-app",
+        "clean": "nwb clean-app",
+        "start": "nwb serve-web-app --reload  && tsc && npm run lint",
+        "lint": "tslint -c tslint.json '**/.ts' '**/.tsx' --exclude '**/node_modules/**'",
+        "test": "nwb test",
+        "test:coverage": "nwb test --coverage",
+        "test:watch": "nwb test --server"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "nwb": "0.21.x",
+        "tslint": "^5.10.0",
+        "tslint-eslint-rules": "^5.3.1",
+        "typescript": "^2.9.2"
+    },
+    "author": "Flock of birds",
+    "license": "MIT",
+    "repository": ""
 }

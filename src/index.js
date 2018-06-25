@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./main.css");
+require("./bootstrap/css/bootstrap.min.css");
 class ToDoApp {
     constructor() {
         this.tasksArray = [];
@@ -11,14 +12,14 @@ class ToDoApp {
         }
     }
     addDate() {
-            // add date to banner
-            this.date = this.date.slice(0, 15);
-            const Pdate = document.getElementById("date");
-            if (Pdate) {
-                Pdate.innerHTML += this.date;
-            }
+        // add date to banner
+        this.date = this.date.slice(0, 15);
+        const Pdate = document.getElementById("date");
+        if (Pdate) {
+            Pdate.innerHTML += this.date;
         }
-        // pick data from html to array
+    }
+    // pick data from html to array
     pickData(event) {
         const table = document.getElementById("tasksTable");
         event.preventDefault();
@@ -44,3 +45,4 @@ class ToDoApp {
 }
 const toDoApp = new ToDoApp();
 toDoApp.addDate();
+//# sourceMappingURL=index.js.map

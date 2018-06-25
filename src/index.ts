@@ -1,8 +1,9 @@
 import "./main.css";
+import "./bootstrap/css/bootstrap.min.css";
 
 class ToDoApp {
     date: string;
-    tasksArray: object[];
+    tasksArray: { status: string, name: string, time: string }[];
     constructor() {
         this.tasksArray = [];
         this.date = new Date().toString();
@@ -24,7 +25,7 @@ class ToDoApp {
 
     // pick data from html to array
     pickData(event: MouseEvent) {
-        const table = document.getElementById("tasksTable");
+        const table = document.getElementById("tasksTable") as HTMLTableElement;
         event.preventDefault();
 
             const inputTaskName = (<HTMLInputElement>document.getElementById("taskName")).value;
@@ -58,21 +59,3 @@ class ToDoApp {
 const toDoApp = new ToDoApp();
 
 toDoApp.addDate();
-
-
-
-
-
-
-
-// let test = "My variable";
-
-
-// class MyClass{
-//     testing = "123";
-//     constructor(testing:any){
-//         this.testing = this.testing;
-//     }
-// }
-
-// const myClass = new MyClass("Awesomeness");

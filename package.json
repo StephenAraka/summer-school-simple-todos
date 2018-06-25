@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Describe summer-school-simple-todos here",
   "scripts": {
-    "build": "nwb build-web-app",
+    "build": "nwb build-web-app && tsc && npm run lint",
     "clean": "nwb clean-app",
     "start": "nwb serve-web-app --reload",
+    "lint": "tslint -c tslint.json '**/.ts' '**/.tsx' --exclude '**/node_modules/**'",
     "test": "nwb test",
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"

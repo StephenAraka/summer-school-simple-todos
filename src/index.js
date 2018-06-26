@@ -8,7 +8,7 @@ class ToDoApp {
         this.date = new Date().toString();
         const databutton = document.getElementById("push_data");
         if (databutton) {
-            databutton.addEventListener("click", (eventObject) => { this.pickData(eventObject); });
+            databutton.addEventListener("click", (eventObject) => this.pickData(eventObject));
         }
     }
     addDate() {
@@ -21,17 +21,22 @@ class ToDoApp {
     }
     // pick data from html to array
     pickData(event) {
+        // HTMLTableElement
         const table = document.getElementById("tasksTable");
         event.preventDefault();
-        const inputTaskName = document.getElementById("taskName").value;
-        const inputTime = document.getElementById("taskTime").value;
-        // create object
-        const obj = {
-            status: "active",
-            name: inputTaskName,
-            time: inputTime,
-        };
-        this.tasksArray.push(obj);
+        const inputTaskNameElement = document.getElementById("taskName");
+        const inputTimeElement = document.getElementById("taskTime");
+        if (inputTaskNameElement && inputTimeElement) {
+            const inputTaskName = inputTaskNameElement.value;
+            const inputTime = inputTimeElement.value;
+            // create object
+            const obj = {
+                status: "active",
+                name: inputTaskName,
+                time: inputTime
+            };
+            this.tasksArray.push(obj);
+        }
         let cellPosition = 0;
         if (table) {
             const tableRow = table.insertRow(this.tasksArray.length - 1);

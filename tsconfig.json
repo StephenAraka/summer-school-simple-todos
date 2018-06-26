@@ -6,6 +6,6 @@
     "module": "commonjs",
     "sourceMap": true,
     "strict": true,
-    "watch": false
+    "watch": true
   }
 }

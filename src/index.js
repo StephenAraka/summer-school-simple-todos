@@ -29,22 +29,30 @@ class ToDoApp {
         if (inputTaskNameElement && inputTimeElement) {
             const inputTaskName = inputTaskNameElement.value;
             const inputTime = inputTimeElement.value;
-            // create object
-            const obj = {
-                status: "active",
-                name: inputTaskName,
-                time: inputTime
-            };
-            this.tasksArray.push(obj);
-        }
-        let cellPosition = 0;
-        if (table) {
-            const tableRow = table.insertRow(this.tasksArray.length - 1);
-            tableRow.insertCell(cellPosition).innerHTML = `<button class='btn btn-success btn-sm'><span class='badge'>${this.tasksArray[this.tasksArray.length - 1].status}</span></button>`;
-            cellPosition += 1;
-            tableRow.insertCell(cellPosition).innerHTML = this.tasksArray[this.tasksArray.length - 1].name;
-            cellPosition += 1;
-            tableRow.insertCell(cellPosition).innerHTML = this.tasksArray[this.tasksArray.length - 1].time;
+            if (inputTaskName === "" || inputTime === "" || inputTaskName === " " || inputTime === " ") {
+                alert("no empty fields please,all fields are required");
+            }
+            else {
+                // reset input fields
+                inputTaskNameElement.value = "";
+                inputTimeElement.value = "";
+                // create object
+                const obj = {
+                    status: "active",
+                    name: inputTaskName,
+                    time: inputTime
+                };
+                this.tasksArray.push(obj);
+                let cellPosition = 0;
+                if (table) {
+                    const tableRow = table.insertRow(this.tasksArray.length - 1);
+                    tableRow.insertCell(cellPosition).innerHTML = `<button class='btn btn-success btn-sm'><span class='badge'>${this.tasksArray[this.tasksArray.length - 1].status}</span></button>`;
+                    cellPosition += 1;
+                    tableRow.insertCell(cellPosition).innerHTML = this.tasksArray[this.tasksArray.length - 1].name;
+                    cellPosition += 1;
+                    tableRow.insertCell(cellPosition).innerHTML = this.tasksArray[this.tasksArray.length - 1].time;
+                }
+            }
         }
     }
 }

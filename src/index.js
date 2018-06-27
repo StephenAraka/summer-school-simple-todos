@@ -2,36 +2,38 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./main.css");
 require("./bootstrap/css/bootstrap.min.css");
+const utilities_1 = require("./utilities");
 class ToDoApp {
     constructor() {
+        this.eventListener = (event) => {
+            this.pickData(event);
+        };
+        this.myDateFunction = utilities_1.addDate();
         this.tasksArray = [];
         this.date = new Date().toString();
         const databutton = document.getElementById("push_data");
         if (databutton) {
-            databutton.addEventListener("click", (eventObject) => { this.pickData(eventObject); });
-        }
-    }
-    addDate() {
-        // add date to banner
-        this.date = this.date.slice(0, 15);
-        const Pdate = document.getElementById("date");
-        if (Pdate) {
-            Pdate.innerHTML += this.date;
+            databutton.addEventListener("click", (eventObject) => this.pickData(eventObject));
         }
     }
     // pick data from html to array
     pickData(event) {
+        // HTMLTableElement
         const table = document.getElementById("tasksTable");
         event.preventDefault();
-        const inputTaskName = document.getElementById("taskName").value;
-        const inputTime = document.getElementById("taskTime").value;
-        // create object
-        const obj = {
-            status: "active",
-            name: inputTaskName,
-            time: inputTime,
-        };
-        this.tasksArray.push(obj);
+        const inputTaskNameElement = document.getElementById("taskName");
+        const inputTimeElement = document.getElementById("taskTime");
+        if (inputTaskNameElement && inputTimeElement) {
+            const inputTaskName = inputTaskNameElement.value;
+            const inputTime = inputTimeElement.value;
+            // create object
+            const obj = {
+                status: "active",
+                name: inputTaskName,
+                time: inputTime
+            };
+            this.tasksArray.push(obj);
+        }
         let cellPosition = 0;
         if (table) {
             const tableRow = table.insertRow(this.tasksArray.length - 1);
@@ -44,5 +46,6 @@ class ToDoApp {
     }
 }
 const toDoApp = new ToDoApp();
-toDoApp.addDate();
+toDoApp.myDateFunction;
+// to make something optional, use ?
 //# sourceMappingURL=index.js.map

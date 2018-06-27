@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "description": "Describe summer-school-simple-todos here",
     "scripts": {
-        "build": "nwb build-web-app",
+        "build": "nwb build-web-app && tsc && npm run lint",
         "clean": "nwb clean-app",
-        "start": "nwb serve-web-app --reload  && tsc && npm run lint",
+        "start": "nwb serve-web-app --reload && tsc && npm run lint",
         "lint": "tslint -c tslint.json '**/.ts' '**/.tsx' --exclude '**/node_modules/**'",
         "test": "nwb test",
         "test:coverage": "nwb test --coverage",
@@ -13,6 +13,9 @@
     },
     "dependencies": {},
     "devDependencies": {
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.12.0",
         "nwb": "0.21.x",
         "tslint": "^5.10.0",
         "tslint-eslint-rules": "^5.3.1",

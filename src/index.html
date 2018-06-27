@@ -40,11 +40,14 @@
                 <div>
                     <h4>Task:</h4>
                     <input type="text" id="taskName" placeholder="Enter name of task"> <br>
+                    <span class="errorTask" aria-live="polite"></span>
                 </div>
 
                 <div>
                     <h4>Time:</h4>
-                    <input type="time" id="taskTime" placeholder="Enter the time"><br><br>
+                    <input type="time" id="taskTime" placeholder="Enter the time"><br>
+                    <span class="errorTime" aria-live="polite"></span>
+                    <br><br>
                     <button class="btn btn-primary" id="push_data">Submit</button><br>
                 </div>
             </form>

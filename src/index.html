@@ -31,7 +31,9 @@
 
             </table>
         </div>
-        <br><br><br>
+        <br>
+        <br>
+        <br>
         <div id="inputData">
 
             <h4>ADD NEW TASK</h4>
@@ -39,21 +41,44 @@
             <form>
                 <div>
                     <h4>Task:</h4>
-                    <input type="text" id="taskName" placeholder="Enter name of task"> <br>
-                    <span class="errorTask" aria-live="polite"></span>
+                    <input type="text" id="taskName" placeholder="Enter name of task">
+                    <br>
+                    <span class="errorTask anotha" aria-live="polite"></span>
                 </div>
 
                 <div>
                     <h4>Time:</h4>
-                    <input type="time" id="taskTime" placeholder="Enter the time"><br>
+                    <input type="time" id="taskTime" placeholder="Enter the time">
+                    <br>
                     <span class="errorTime" aria-live="polite"></span>
-                    <br><br>
-                    <button class="btn btn-primary" id="push_data">Submit</button><br>
+                    <br>
+                    <br>
+                    <button class="btn btn-primary" id="push_data">Submit</button>
+                    <br>
                 </div>
             </form>
 
+        <div id="overlay">
+            <div id="text">
+                edit name: <input type="text" id="editName"><br><br>
+                edit time:  <input type="time" id="editTime"><br><br>
+                edit status: <select id="editStatus">
+                                <option>active</option>
+                                <option>pending</option>
+                                <option>postponed</option>
+                            </select>
+                <br><br>
+                <button id="editButton" class="btn btn-primary">Ok</button>
+                <button id="deleteButton" class="btn btn-primary">Delete Task</button>
+            </div>
         </div>
+        </div>
+
     </div>
+
+
+
+
 </body>
 
 </html>

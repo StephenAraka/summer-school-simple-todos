@@ -1,4 +1,4 @@
-var date = new Date().toString();
+let date = new Date().toString();
 
 export function addDate() {
     // add date to banner
@@ -14,83 +14,6 @@ export interface Task {
     name: string;
     time: string;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // var date = new Date().toString();
 

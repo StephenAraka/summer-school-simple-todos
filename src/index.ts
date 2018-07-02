@@ -13,6 +13,7 @@ class ToDoApp {
     editStatus = document.getElementById("editStatus");
     trackIndex = 0;
     table = document.getElementById("tasksTable") as HTMLTableElement | null;
+    overlaybutton: HTMLElement | null = null;
 
     constructor() {
         // validation
@@ -61,24 +62,30 @@ class ToDoApp {
         }
 
         // eventlistner on submit button
-        const databutton: HTMLElement | null = document.getElementById("push_data");
+        const databutton = document.getElementById("push_data") as HTMLElement;
         if (databutton) {
-            databutton.addEventListener("click", this.pickData.bind(this));
+            databutton.addEventListener("click", this.pickData);
         }
 
         // event listener to switch off overlay
-        const overlayOff = document.getElementById("editButton");
-        if (overlayOff) {
-            overlayOff.addEventListener("click", this.overlayOff.bind(this));
+        const turnOverlayOff = document.getElementById("editButton");
+        if (turnOverlayOff) {
+            turnOverlayOff.addEventListener("click", this.overlayOff.bind(this));
+        }
+
+        const deleteButton = document.getElementById("deleteButton");
+        if (deleteButton) {
+            deleteButton.addEventListener("click", this.deleteTask);
+
         }
     }
 
-    eventListener = (event: MouseEvent) => {
-        this.pickData(event);
-    }
+    // eventListener = (event: MouseEvent) => {
+    //     this.pickData(event);
+    // }
 
     // pick data from html to array
-    pickData(event: MouseEvent) {
+    pickData = (event: MouseEvent) => {
         // HTMLTableElement
         event.preventDefault();
 
@@ -133,19 +140,11 @@ class ToDoApp {
                     tableRow.insertCell(cellPosition).innerHTML = `<button  id='${buttonId}' class='btn btn-primary btn-xs'>edit task</button>`;
 
                     // overlay on button
-                    const overlaybutton = document.getElementById(buttonId);
+                    this.overlaybutton = document.getElementById(buttonId);
                     const objectIndex = this.tasksArray.length - 1;
-                    if (overlaybutton) {
+                    if (this.overlaybutton) {
                         // overlaybutton.addEventListener("click", this.overlayOn.bind(this));
-                        overlaybutton.addEventListener("click", (eventObj: MouseEvent) => {
-                            eventObj.preventDefault();
-                            this.trackIndex = objectIndex;
-                            if (this.overlayElement && this.editName && this.editStatus && this.editTime) {
-                            this.editName.value = this.tasksArray[objectIndex].name;
-                            this.editTime.value = this.tasksArray[objectIndex].time;
-                            this.overlayElement.style.display = "block";
-                            }
-                        });
+                        this.overlaybutton.addEventListener("click", (eventObject) => this.editButtonListener(eventObject, objectIndex));
                     }
                 }
 
@@ -154,8 +153,21 @@ class ToDoApp {
         }
     }
 
+    editButtonListener = (eventObj: MouseEvent, objectIndex: number) => {
+        // this.trackIndex = objectIndex;
+        const myid = eventObj.currentTarget as any;
+        const mm = myid.id as string;
+
+        console.log(myid); // tslint:disable-line
+        if (this.overlayElement && this.editName && this.editStatus && this.editTime) {
+            this.editName.value = this.tasksArray[objectIndex].name;
+            this.editTime.value = this.tasksArray[objectIndex].time;
+            this.overlayElement.style.display = "block";
+        }
+    }
+
     overlayOff(event: MouseEvent) {
-        event.preventDefault();
+        // event.preventDefault();
         if (this.overlayElement) {
             if (this.overlayElement && this.editName && this.editStatus && this.editTime) {
                 this.tasksArray[this.trackIndex].name = this.editName.value;
@@ -169,11 +181,29 @@ class ToDoApp {
                     trow.insertCell(2).innerHTML = this.tasksArray[this.trackIndex].time;
                     const buttonId = `task${this.trackIndex}`;
                     trow.insertCell(3).innerHTML = `<button  id='${buttonId}' class='btn btn-primary btn-xs'>edit task</button>`;
+                    // overlay on button
+                    this.overlaybutton = document.getElementById(buttonId);
+                    // const objectIndex = this.trackIndex;
+                    if (this.overlaybutton) {
+                        // overlaybutton.addEventListener("click", this.overlayOn.bind(this));
+                        this.overlaybutton.addEventListener("click", (eventObject) => this.editButtonListener(eventObject, this.trackIndex));
+                    }
                 }
 
             }
             this.overlayElement.style.display = "none";
 
+        }
+
+    }
+
+    deleteTask = () => {
+        if (this.overlayElement) {
+            this.tasksArray.splice(this.trackIndex, 1);
+            if (this.table) {
+                this.table.deleteRow(this.trackIndex);
+            }
+            this.overlayElement.style.display = "none";
         }
     }
 }

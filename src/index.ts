@@ -10,7 +10,7 @@ class ToDoApp {
     overlayElement = document.getElementById("overlay");
     editName = document.getElementById("editName") as HTMLInputElement | null;
     editTime = document.getElementById("editTime") as HTMLInputElement | null;
-    editStatus = document.getElementById("editStatus");
+    editStatus = document.getElementById("editStatus") as HTMLInputElement;
     trackIndex = 0;
     table = document.getElementById("tasksTable") as HTMLTableElement | null;
     overlaybutton: HTMLElement | null = null;
@@ -154,12 +154,9 @@ class ToDoApp {
     }
 
     editButtonListener = (eventObj: MouseEvent, objectIndex: number) => {
-        // this.trackIndex = objectIndex;
-        const myid = eventObj.currentTarget as any;
-        const mm = myid.id as string;
-
-        console.log(myid); // tslint:disable-line
+        this.trackIndex = objectIndex;
         if (this.overlayElement && this.editName && this.editStatus && this.editTime) {
+            this.editStatus.value = this.tasksArray[objectIndex].status;
             this.editName.value = this.tasksArray[objectIndex].name;
             this.editTime.value = this.tasksArray[objectIndex].time;
             this.overlayElement.style.display = "block";
@@ -170,13 +167,14 @@ class ToDoApp {
         // event.preventDefault();
         if (this.overlayElement) {
             if (this.overlayElement && this.editName && this.editStatus && this.editTime) {
+                this.tasksArray[this.trackIndex].status = this.editStatus.value;
                 this.tasksArray[this.trackIndex].name = this.editName.value;
                 this.tasksArray[this.trackIndex].time = this.editTime.value;
 
                 if (this.table) {
                     this.table.deleteRow(this.trackIndex);
                     const trow = this.table.insertRow(this.trackIndex);
-                    trow.insertCell(0).innerHTML = `<button class='btn btn-success btn-sm'><span class='badge'>${this.tasksArray[this.trackIndex].status}</span></button>`;
+                    trow.insertCell(0).innerHTML = `<button class='btn btn-danger btn-sm'><span class='badge'>${this.tasksArray[this.trackIndex].status}</span></button>`;
                     trow.insertCell(1).innerHTML = this.tasksArray[this.trackIndex].name;
                     trow.insertCell(2).innerHTML = this.tasksArray[this.trackIndex].time;
                     const buttonId = `task${this.trackIndex}`;

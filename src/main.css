@@ -5,7 +5,8 @@ body {
 }
 
 #app {
-    width: 90%;
+    width: 80%;
+    height: 80%;
     margin: 20px auto;
     border-radius: 6px;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
@@ -15,14 +16,20 @@ body {
 }
 
 #banner {
-    background: #eee;
+    background: #23384c;
+    height: 120px;
+    background-image: ".";
     padding: 10px 0;
+    font-style: italic;
+    color: burlywood;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
 }
 
-#banner h3,
-#banner p {
+#banner h3 {
     text-align: center;
     margin: 10px 0;
+    font-size: 40px;
 }
 
 #button {
@@ -77,18 +84,17 @@ input {
     margin-bottom: 11px;
 }
 
-
-.error{
-    color:red;
+.error {
+    color: red;
     font-size: 15px;
 }
 
-.okay{
-   color:green;
+.okay {
+    color: green;
 }
 
-/*overlay stlyes*/
 
+/*overlay stlyes*/
 
 #overlay {
     position: fixed;
@@ -101,21 +107,22 @@ input {
     bottom: 0;
     z-index: 2;
     background-color: #b0c4de;
+    /* box-shadow: 10px 10px 5px grey; */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     border-radius: 10px;
     transition: all 500ms ease;
 }
 
-#text{
+#text {
     position: absolute;
     top: 50%;
     left: 50%;
-    color:#444;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
+    color: #444;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
-#text input{
-    width:100%;
+#text input {
+    width: 100%;
 }
-
